@@ -161,6 +161,7 @@ export class imageMapCreator {
       .dragLeave(this.onLeave.bind(this))
       .dragOver(this.onOver.bind(this));
     //@ts-ignore p5 types does not specify the canvas attribute
+
     this.settings = QuickSettings.create(
       this.p5.width + 5,
       0,
@@ -585,9 +586,12 @@ export class imageMapCreator {
       case 'test':
       case 'select':
         if (this.mouseIsHoverSketch()) {
-          let href = this.hoveredArea
-            ? this.hoveredArea.getHrefVerbose()
-            : 'none';
+          const href = this.hoveredArea
+            ? this.hoveredArea.getTitle()
+            : 'タイトルを入力してください';
+          // let href = this.hoveredArea
+          //   ? this.hoveredArea.getHrefVerbose()
+          //   : 'none';
           this.settings.setValue('Output', href);
         }
         break;
