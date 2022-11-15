@@ -183,6 +183,7 @@ export class imageMapCreator {
       .addBoolean('Default Area', this.map.hasDefaultArea, (v: boolean) => {
         this.setDefaultArea(v);
       })
+      .addTextArea('Output')
       .addButton('Undo', this.undoManager.undo)
       .addButton('Redo', this.undoManager.redo)
       .addButton('Clear', this.clearAreas.bind(this))
@@ -192,7 +193,6 @@ export class imageMapCreator {
       .addButton('Generate Svg', () => {
         this.settings.setValue('Output', this.map.toSvg());
       })
-      .addTextArea('Output')
       .addButton('Save', this.save.bind(this));
     //@ts-ignore Fix for oncontextmenu
     this.p5.canvas.addEventListener('contextmenu', (e) => {
